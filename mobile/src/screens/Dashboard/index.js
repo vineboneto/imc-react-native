@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 import InfoRadius from '../../components/InfoRadius';
+import ButtonRegisterImc from '../../components/ButtonRegisterImc';
 
 import { theme } from '../../styles/theme';
 import styles from './styles';
@@ -28,9 +29,9 @@ const Dashboard = () => {
           />
         </View>
 
-        <RectButton style={styles.buttonRegister}>
-          <Text style={styles.buttonTextRegister}>CADASTRAR</Text>
-        </RectButton>
+        <ButtonRegisterImc />
+
+        <View></View>
       </View>
     </View>
   );
