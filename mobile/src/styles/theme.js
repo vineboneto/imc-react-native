@@ -7,4 +7,9 @@ export const theme = {
     black: '#000',
     light: '#C4C4C4',
   },
+  fonts: {
+    light: 'Roboto-Light',
+    bold: 'Roboto-Bold',
+    regular: 'Roboto-Regular',
+  },
 };

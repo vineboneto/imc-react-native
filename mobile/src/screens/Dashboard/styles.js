@@ -39,7 +39,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: 314,
+    width: 340,
   },
   buttonRegister: {
     height: 55,
