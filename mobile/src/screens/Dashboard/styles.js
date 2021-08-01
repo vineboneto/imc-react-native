@@ -35,9 +35,23 @@ export default StyleSheet.create({
   },
   infoContent: {
     marginTop: 45,
+    marginBottom: 70,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     width: 314,
+  },
+  buttonRegister: {
+    height: 55,
+    backgroundColor: theme.colors.primary,
+    paddingHorizontal: 30,
+    paddingVertical: 19,
+    justifyContent: 'center',
+    borderRadius: 4,
+  },
+  buttonTextRegister: {
+    color: theme.colors.white,
+    fontWeight: 'bold',
+    fontSize: 24,
   },
 });

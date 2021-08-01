@@ -27,6 +27,10 @@ const Dashboard = () => {
             color={theme.colors.primary}
           />
         </View>
+
+        <RectButton style={styles.buttonRegister}>
+          <Text style={styles.buttonTextRegister}>CADASTRAR</Text>
+        </RectButton>
       </View>
     </View>
   );
