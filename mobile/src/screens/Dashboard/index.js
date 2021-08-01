@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { View, FlatList } from 'react-native';
 
 import InfoRadius from '../../components/InfoRadius';
 import ButtonRegisterImc from '../../components/ButtonRegisterImc';
 import ImcRegister from '../../components/ImcRegister';
+import ButtonNewWeight from '../../components/ButtonNewWeight';
 
 import { theme } from '../../styles/theme';
 import { fakeDataRegisters } from '../../utils/fakeImcRegister';
@@ -39,9 +39,7 @@ const Dashboard = () => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <RectButton style={styles.button}>
-          <Text style={styles.buttonText}>CADASTRAR PESO ALVO</Text>
-        </RectButton>
+        <ButtonNewWeight />
         <View style={styles.infoRadius}>
           <InfoRadius number={8.9} description="imc" />
           <InfoRadius

@@ -10,19 +10,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginTop: 29,
   },
-  button: {
-    backgroundColor: theme.colors.success,
-    height: 40,
-    justifyContent: 'center',
-    paddingHorizontal: 44,
-    paddingVertical: 26,
-    borderRadius: 4,
-  },
-  buttonText: {
-    color: theme.colors.white,
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
   infoRadius: {
     marginTop: 45,
     marginBottom: 70,
