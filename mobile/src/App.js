@@ -1,12 +1,10 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 
-import Dashboard from './screens/Dashboard';
+import { AppRoutes } from './routes/app.routes';
 
 const App = () => {
-
-  return (
-    <Dashboard />
-  );
+  return <AppRoutes />;
 };
 
 export default App;

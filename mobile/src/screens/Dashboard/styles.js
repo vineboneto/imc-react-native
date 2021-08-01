@@ -4,23 +4,11 @@ import { theme } from '../../styles/theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    // minHeight: '100%',
   },
   content: {
     flex: 1,
     alignItems: 'center',
     marginTop: 29,
-  },
-  header: {
-    backgroundColor: theme.colors.primary,
-    height: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    color: theme.colors.white,
-    fontSize: 24,
-    fontWeight: 'bold',
   },
   button: {
     backgroundColor: theme.colors.success,
@@ -45,6 +33,5 @@ export default StyleSheet.create({
   },
   registerImc: {
     width: '100%',
-    height: '100%',
   },
 });

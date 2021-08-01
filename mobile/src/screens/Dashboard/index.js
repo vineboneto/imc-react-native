@@ -38,10 +38,6 @@ const Dashboard = () => {
   }, []);
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>MEU IMC</Text>
-      </View>
-
       <View style={styles.content}>
         <RectButton style={styles.button}>
           <Text style={styles.buttonText}>CADASTRAR PESO ALVO</Text>

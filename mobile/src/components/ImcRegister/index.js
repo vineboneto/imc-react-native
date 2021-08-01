@@ -26,7 +26,7 @@ const ImcRegister = ({ data }) => {
           />
         </View>
         <View style={styles.buttonGroup}>
-          <ButtonInfoAction text="EDITAR" />
+          <ButtonInfoAction text="Editar" />
           <ButtonInfoAction text="Excluir" color={theme.colors.danger} />
         </View>
       </View>
