@@ -41,10 +41,14 @@ const Dashboard = ({ navigation }) => {
     navigation.navigate('ImcCreate');
   };
 
+  const handleNavigationWeightCreate = () => {
+    navigation.navigate('WeightCreate');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <ButtonNewWeight onPress={handleNavigationImcCreate} />
+        <ButtonNewWeight onPress={handleNavigationWeightCreate} />
         <View style={styles.infoRadius}>
           <InfoRadius number={8.9} description="imc" />
           <InfoRadius
@@ -53,7 +57,7 @@ const Dashboard = ({ navigation }) => {
             color={theme.colors.primary}
           />
         </View>
-        <ButtonRegisterImc />
+        <ButtonRegisterImc onPress={handleNavigationImcCreate} />
         <FlatList
           data={state.registers}
           keyExtractor={(item) => item.id.toString()}

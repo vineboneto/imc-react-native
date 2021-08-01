@@ -4,9 +4,9 @@ import { RectButton } from 'react-native-gesture-handler';
 
 import styles from './styles';
 
-const ButtonRegisterImc = () => {
+const ButtonRegisterImc = ({ ...rest }) => {
   return (
-    <RectButton style={styles.container}>
+    <RectButton style={styles.container} {...rest}>
       <Text style={styles.text}>CADASTRAR</Text>
     </RectButton>
   );

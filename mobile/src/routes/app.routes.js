@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Header from '../components/Header';
 import Dashboard from '../screens/Dashboard';
 import ImcCreate from '../screens/ImcCreate';
+import WeightCreate from '../screens/WeightCreate';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -16,6 +17,7 @@ export const AppRoutes = () => (
       }}>
       <Screen name="Dashboard" component={Dashboard} />
       <Screen name="ImcCreate" component={ImcCreate} />
+      <Screen name="WeightCreate" component={WeightCreate} />
     </Navigator>
   </NavigationContainer>
 );
