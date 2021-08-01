@@ -13,7 +13,9 @@ export const AppRoutes = () => (
   <NavigationContainer>
     <Navigator
       screenOptions={{
-        header: ({ navigation }) => <Header navigation={navigation} />,
+        header: ({ navigation, previous }) => (
+          <Header navigation={navigation} previous={previous} />
+        ),
       }}>
       <Screen name="Dashboard" component={Dashboard} />
       <Screen name="ImcCreate" component={ImcCreate} />
