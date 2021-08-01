@@ -5,17 +5,27 @@ import { theme } from '../../styles/theme';
 
 import styles from './styles';
 
-const Button = ({ text, contained, ...rest }) => {
-  const { primary, white } = theme.colors;
+const Button = ({ text, contained, enable = true, ...rest }) => {
+  const { primary, white, light } = theme.colors;
+
+  const handleButtonColor = () => {
+    if (!enable) {
+      return light;
+    } else if (contained) {
+      return primary;
+    }
+    return white;
+  };
 
   return (
     <RectButton
       style={[
         styles.container,
         {
-          backgroundColor: contained ? primary : white,
+          backgroundColor: handleButtonColor(),
         },
       ]}
+      enabled={enable}
       {...rest}>
       <Text style={[styles.text, { color: contained ? white : primary }]}>
         {text}

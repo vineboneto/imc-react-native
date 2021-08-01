@@ -1,5 +1,7 @@
 {
-  "peso-alvo": {},
+  "peso-alvo": {
+    "peso": 90
+  },
   "registro": [],
   "test": {
     "message": "ok"
