@@ -1,23 +1,15 @@
 import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
 
-// import api from '../../api';
+import styles from './styles';
+import api from '../../api';
 
 const Dashboard = () => {
-  useEffect(() => {
-    // async function teste() {
-    //   const response = await api.get('/test');
-
-    //   console.log('response: ', response);
-    // }
-
-    // teste();
-
-  }, [])
-
   return (
     <View>
-      <Text>Meu IMC</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>MEU IMC</Text>
+      </View>
     </View>
   );
 };
