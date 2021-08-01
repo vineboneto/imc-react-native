@@ -4,10 +4,10 @@ import { RectButton } from 'react-native-gesture-handler';
 
 import styles from './styles';
 
-const ButtonNewWeight = () => {
+const ButtonNewWeight = ({ ...rest }) => {
   return (
-    <RectButton style={styles.button}>
-      <Text style={styles.buttonText}>CADASTRAR PESO ALVO</Text>
+    <RectButton style={styles.button} {...rest}>
+      <Text style={styles.buttonText}>CADASTRAR PESO-ALVO</Text>
     </RectButton>
   );
 };

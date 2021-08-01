@@ -9,17 +9,17 @@ export default StyleSheet.create({
   content: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 29,
+    marginTop: 148,
+    paddingHorizontal: 20,
   },
   infoRadius: {
-    marginTop: 45,
-    marginBottom: 70,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: 340,
+    marginBottom: 62,
   },
-  registerImc: {
-    width: '100%',
+  buttonGroup: {
+    flexDirection: 'row',
+    alignSelf: 'flex-end',
+    alignItems: 'flex-end',
+    flex: 1,
+    paddingBottom: 20,
   },
 });

@@ -6,6 +6,7 @@ export const theme = {
     white: '#fff',
     black: '#000',
     light: '#C4C4C4',
+    backgroundInput: '#F8F8F8',
   },
   fonts: {
     light: 'Roboto-Light',

@@ -11,7 +11,7 @@ import { fakeDataRegisters } from '../../utils/fakeImcRegister';
 import styles from './styles';
 import api from '../../api';
 
-const Dashboard = () => {
+const Dashboard = ({ navigation }) => {
   const [state, setState] = useState({
     registers: [
       {
@@ -36,10 +36,15 @@ const Dashboard = () => {
       })),
     }));
   }, []);
+
+  const handleNavigationImcCreate = () => {
+    navigation.navigate('ImcCreate');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <ButtonNewWeight />
+        <ButtonNewWeight onPress={handleNavigationImcCreate} />
         <View style={styles.infoRadius}>
           <InfoRadius number={8.9} description="imc" />
           <InfoRadius
