@@ -4,8 +4,10 @@ import { theme } from '../../styles/theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
+    // minHeight: '100%',
   },
   content: {
+    flex: 1,
     alignItems: 'center',
     marginTop: 29,
   },
@@ -33,7 +35,7 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  infoContent: {
+  infoRadius: {
     marginTop: 45,
     marginBottom: 70,
     flexDirection: 'row',
@@ -41,17 +43,8 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     width: 340,
   },
-  buttonRegister: {
-    height: 55,
-    backgroundColor: theme.colors.primary,
-    paddingHorizontal: 30,
-    paddingVertical: 19,
-    justifyContent: 'center',
-    borderRadius: 4,
-  },
-  buttonTextRegister: {
-    color: theme.colors.white,
-    fontWeight: 'bold',
-    fontSize: 24,
+  registerImc: {
+    width: '100%',
+    height: '100%',
   },
 });

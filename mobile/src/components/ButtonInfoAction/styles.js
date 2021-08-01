@@ -3,17 +3,16 @@ import { theme } from '../../styles/theme';
 
 export default StyleSheet.create({
   container: {
-    height: 55,
-    backgroundColor: theme.colors.primary,
-    paddingHorizontal: 30,
-    paddingVertical: 19,
+    alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 4,
-    marginBottom: 85,
+    height: 33,
+    width: 102,
   },
   text: {
     color: theme.colors.white,
+    fontFamily: theme.fonts.bold,
     fontWeight: 'bold',
-    fontSize: 24,
+    textTransform: 'uppercase',
   },
 });
