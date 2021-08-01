@@ -4,5 +4,7 @@ export const theme = {
     danger: '#e42626',
     success: '#26E472',
     white: '#fff',
+    black: '#000',
+    light: '#C4C4C4',
   },
 };

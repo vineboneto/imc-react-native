@@ -33,4 +33,11 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  infoContent: {
+    marginTop: 45,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: 314,
+  },
 });
