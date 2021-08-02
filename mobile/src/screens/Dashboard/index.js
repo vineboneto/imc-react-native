@@ -3,6 +3,7 @@ import { View, FlatList } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 
 import InfoRadius from '../../components/InfoRadius';
+import ImcRadius from '../../components/ImcRadius';
 import ButtonRegisterImc from '../../components/ButtonRegisterImc';
 import ImcRegister from '../../components/ImcRegister';
 import ButtonNewWeight from '../../components/ButtonNewWeight';
@@ -16,6 +17,7 @@ const Dashboard = ({ navigation }) => {
   const isFocused = useIsFocused();
   const [state, setState] = useState({
     currentWeight: null,
+    reload: false,
     registers: [
       {
         id: 0,
@@ -62,7 +64,7 @@ const Dashboard = ({ navigation }) => {
         }));
       });
     }
-  }, [isFocused]);
+  }, [isFocused, state.reload]);
 
   const handleNavigationImcCreate = () => {
     navigation.navigate('ImcCreate');
@@ -70,6 +72,13 @@ const Dashboard = ({ navigation }) => {
 
   const handleNavigationWeightCreate = () => {
     navigation.navigate('WeightCreate');
+  };
+
+  const handleReload = () => {
+    setState((old) => ({
+      ...old,
+      reload: !state.reload,
+    }));
   };
 
   return (
@@ -85,9 +94,9 @@ const Dashboard = ({ navigation }) => {
         )}
 
         <View style={styles.infoRadius}>
-          <InfoRadius number={8.9} description="imc" />
+          <ImcRadius imc={state.registers[0].imc} />
           <InfoRadius
-            number={60.3}
+            number={state.registers[0].weight}
             description="peso(kg)"
             color={theme.colors.primary}
           />
@@ -96,7 +105,9 @@ const Dashboard = ({ navigation }) => {
         <FlatList
           data={state.registers}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <ImcRegister data={item} />}
+          renderItem={({ item }) => (
+            <ImcRegister data={item} reload={handleReload} />
+          )}
           style={styles.registerImc}
           showsVerticalScrollIndicator={false}
         />

@@ -15,7 +15,8 @@ import { theme } from '../../styles/theme';
 import styles from './styles';
 import api from '../../api';
 
-const ImcCreate = ({ navigation }) => {
+const ImcCreate = ({ navigation, route }) => {
+  const params = route.params;
   const [state, setState] = useState({
     imc: null,
     weight: '',
@@ -30,6 +31,19 @@ const ImcCreate = ({ navigation }) => {
   useEffect(() => {
     validate();
   }, [state.weight, state.height]);
+
+  useEffect(() => {
+    if (params?.id) {
+      api.get(`/registro/${params?.id}`).then((response) => {
+        const data = response.data;
+        setState((old) => ({
+          ...old,
+          height: data.altura,
+          weight: data.peso,
+        }));
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (state.height && state.weight) {
@@ -51,12 +65,24 @@ const ImcCreate = ({ navigation }) => {
     }
   };
 
-  const handleSaveImc = async () => {
+  const handleAddImc = async () => {
     if (state.enableButton) {
-      console.log(state.weight);
-      console.log(state.height);
       try {
         await api.post('/registro', {
+          peso: parseFloat(state.weight).toFixed(1),
+          altura: parseFloat(state.height).toFixed(2),
+        });
+        navigation.navigate('Dashboard');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  const handleUpdateImc = async () => {
+    if (state.enableButton) {
+      try {
+        await api.put(`/registro/${params?.id}`, {
           peso: parseFloat(state.weight).toFixed(1),
           altura: parseFloat(state.height).toFixed(2),
         });
@@ -100,7 +126,7 @@ const ImcCreate = ({ navigation }) => {
           <Button
             text="salvar"
             contained
-            onPress={handleSaveImc}
+            onPress={params?.id ? handleUpdateImc : handleAddImc}
             enable={state.enableButton}
           />
         </View>

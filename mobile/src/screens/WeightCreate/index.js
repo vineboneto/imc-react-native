@@ -15,6 +15,18 @@ const WeightCreate = ({ navigation }) => {
     enableButton: false,
   });
 
+  useEffect(() => {
+    api.get('/peso-alvo').then((response) => {
+      const { peso } = response.data;
+      if (peso) {
+        setState((old) => ({
+          ...old,
+          weight: peso.replace('.', ','),
+        }));
+      }
+    });
+  }, [state.currentWeight]);
+
   const handleChangeWeight = (text) => {
     console.log(text);
     setState((old) => ({ ...old, weight: text }));
