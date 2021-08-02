@@ -12,7 +12,7 @@ const InfoRadius = ({ number, description, color, ...rest }) => {
         { borderColor: color ? color : theme.colors.success },
         rest.style,
       ]}>
-      <Text style={styles.number}>{number.toString().replace('.', ',')}</Text>
+      <Text style={styles.number}>{number?.toString().replace('.', ',')}</Text>
       <Text style={styles.description}>{description}</Text>
     </View>
   );

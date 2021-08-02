@@ -11,7 +11,7 @@ const InfoRadiusMini = ({ number, description, color }) => {
         styles.container,
         { borderColor: color ? color : theme.colors.success },
       ]}>
-      <Text style={styles.number}>{number.toString().replace('.', ',')}</Text>
+      <Text style={styles.number}>{number?.toString().replace('.', ',')}</Text>
       <Text style={styles.description}>{description}</Text>
     </View>
   );

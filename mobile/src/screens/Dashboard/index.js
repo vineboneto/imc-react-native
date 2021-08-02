@@ -51,17 +51,19 @@ const Dashboard = ({ navigation }) => {
     if (isFocused) {
       api.get('/registro').then((response) => {
         const datas = response.data;
-        const sortedData = datas.sort(sortByDate);
-        setState((old) => ({
-          ...old,
-          registers: sortedData.map((value) => ({
-            id: value.id,
-            height: value.altura,
-            date: value.data,
-            weight: value.peso,
-            imc: (value.peso / value.altura ** 2).toFixed(1),
-          })),
-        }));
+        if (datas) {
+          const sortedData = datas.sort(sortByDate);
+          setState((old) => ({
+            ...old,
+            registers: sortedData.map((value) => ({
+              id: value.id,
+              height: value.altura,
+              date: value.data,
+              weight: value.peso,
+              imc: (value.peso / value.altura ** 2).toFixed(1),
+            })),
+          }));
+        }
       });
     }
   }, [isFocused, state.reload]);
@@ -84,7 +86,7 @@ const Dashboard = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        {state.currentWeight ? (
+        {state.currentWeight && parseFloat(state.currentWeight) !== 0 ? (
           <ButtonUpdateWeight
             onPress={handleNavigationWeightCreate}
             weight={state.currentWeight}
@@ -94,23 +96,25 @@ const Dashboard = ({ navigation }) => {
         )}
 
         <View style={styles.infoRadius}>
-          <ImcRadius imc={state.registers[0].imc} />
+          <ImcRadius imc={state.registers[0]?.imc} />
           <InfoRadius
-            number={state.registers[0].weight}
+            number={state.registers[0]?.weight}
             description="peso(kg)"
             color={theme.colors.primary}
           />
         </View>
         <ButtonRegisterImc onPress={handleNavigationImcCreate} />
-        <FlatList
-          data={state.registers}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <ImcRegister data={item} reload={handleReload} />
-          )}
-          style={styles.registerImc}
-          showsVerticalScrollIndicator={false}
-        />
+        {state.currentWeight && (
+          <FlatList
+            data={state.registers}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <ImcRegister data={item} reload={handleReload} />
+            )}
+            style={styles.registerImc}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
       </View>
     </View>
   );
