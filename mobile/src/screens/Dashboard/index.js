@@ -27,6 +27,10 @@ const Dashboard = ({ navigation }) => {
     ],
   });
 
+  const sortByDate = (a, b) => {
+    return a.data < b.data;
+  };
+
   useEffect(() => {
     if (isFocused) {
       api.get('/peso-alvo').then((response) => {
@@ -42,21 +46,23 @@ const Dashboard = ({ navigation }) => {
   }, [state.currentWeight, isFocused]);
 
   useEffect(() => {
-    api.get('/registro').then((response) => {
-      console.log(response.data);
-      const datas = response.data;
-      setState((old) => ({
-        ...old,
-        registers: datas.map((value) => ({
-          id: value.id,
-          height: value.altura,
-          date: value.data,
-          weight: value.peso,
-          imc: (value.peso / value.altura ** 2).toFixed(1),
-        })),
-      }));
-    });
-  }, []);
+    if (isFocused) {
+      api.get('/registro').then((response) => {
+        const datas = response.data;
+        const sortedData = datas.sort(sortByDate);
+        setState((old) => ({
+          ...old,
+          registers: sortedData.map((value) => ({
+            id: value.id,
+            height: value.altura,
+            date: value.data,
+            weight: value.peso,
+            imc: (value.peso / value.altura ** 2).toFixed(1),
+          })),
+        }));
+      });
+    }
+  }, [isFocused]);
 
   const handleNavigationImcCreate = () => {
     navigation.navigate('ImcCreate');
