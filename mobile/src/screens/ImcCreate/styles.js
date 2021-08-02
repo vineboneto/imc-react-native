@@ -6,6 +6,9 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.white,
   },
+  scrollView: {
+    flex: 1,
+  },
   content: {
     flex: 1,
     alignItems: 'center',
@@ -16,10 +19,12 @@ export default StyleSheet.create({
     marginBottom: 62,
   },
   buttonGroup: {
+    flex: 1,
     flexDirection: 'row',
     alignSelf: 'flex-end',
     alignItems: 'flex-end',
-    flex: 1,
+    alignContent: 'flex-end',
     paddingBottom: 20,
+    marginRight: 20,
   },
 });

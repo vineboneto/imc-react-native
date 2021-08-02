@@ -32,7 +32,6 @@ const Dashboard = ({ navigation }) => {
     if (isFocused) {
       api.get('/peso-alvo').then((response) => {
         const { peso } = response.data;
-        console.log(response.data);
         if (peso) {
           setState((old) => ({
             ...old,
@@ -67,7 +66,6 @@ const Dashboard = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        {console.log('state', state.currentWeight)}
         {state.currentWeight ? (
           <ButtonUpdateWeight
             onPress={handleNavigationWeightCreate}
