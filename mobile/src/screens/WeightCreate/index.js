@@ -28,7 +28,6 @@ const WeightCreate = ({ navigation }) => {
   }, [state.currentWeight]);
 
   const handleChangeWeight = (text) => {
-    console.log(text);
     setState((old) => ({ ...old, weight: text }));
   };
 
@@ -44,7 +43,6 @@ const WeightCreate = ({ navigation }) => {
 
   const handleSaveWeight = async () => {
     if (state.enableButton) {
-      console.log(state.weight);
       try {
         await api.put('/peso-alvo', {
           peso: parseFloat(state.weight).toFixed(1),

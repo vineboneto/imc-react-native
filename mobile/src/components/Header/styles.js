@@ -4,10 +4,12 @@ import { theme } from '../../styles/theme';
 export default StyleSheet.create({
   header: {
     backgroundColor: theme.colors.primary,
-    height: 60,
+    height: 80,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 35,
+    paddingTop: 60,
+    paddingBottom: 40,
     flexDirection: 'row',
   },
   title: {
@@ -19,7 +21,8 @@ export default StyleSheet.create({
   backButton: {
     alignSelf: 'flex-start',
     position: 'absolute',
-    left: 20,
-    top: 15,
+    left: 25,
+    top: 44,
+    flex: 1,
   },
 });

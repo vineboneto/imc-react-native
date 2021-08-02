@@ -12,7 +12,6 @@ const ImcRadius = ({ imc, ...rest }) => {
       setColor(success);
     } else {
       setColor(danger);
-      console.log(color);
     }
   };
 
