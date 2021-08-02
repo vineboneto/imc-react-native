@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -20,4 +20,4 @@ const Header = ({ navigation, previous }) => {
   );
 };
 
-export default memo(Header);
+export default Header;

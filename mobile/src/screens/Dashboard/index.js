@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { View, FlatList } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 
 import InfoRadius from '../../components/InfoRadius';
 import ButtonRegisterImc from '../../components/ButtonRegisterImc';
 import ImcRegister from '../../components/ImcRegister';
 import ButtonNewWeight from '../../components/ButtonNewWeight';
+import ButtonUpdateWeight from '../../components/ButtonUpdateWeight';
 
 import { theme } from '../../styles/theme';
 import { fakeDataRegisters } from '../../utils/fakeImcRegister';
@@ -12,7 +14,9 @@ import styles from './styles';
 import api from '../../api';
 
 const Dashboard = ({ navigation }) => {
+  const isFocused = useIsFocused();
   const [state, setState] = useState({
+    currentWeight: null,
     registers: [
       {
         id: 0,
@@ -23,6 +27,21 @@ const Dashboard = ({ navigation }) => {
       },
     ],
   });
+
+  useEffect(() => {
+    if (isFocused) {
+      api.get('/peso-alvo').then((response) => {
+        const { peso } = response.data;
+        console.log(response.data);
+        if (peso) {
+          setState((old) => ({
+            ...old,
+            currentWeight: peso.replace('.', ','),
+          }));
+        }
+      });
+    }
+  }, [state.currentWeight, isFocused]);
 
   useEffect(() => {
     setState((old) => ({
@@ -48,7 +67,16 @@ const Dashboard = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <ButtonNewWeight onPress={handleNavigationWeightCreate} />
+        {console.log('state', state.currentWeight)}
+        {state.currentWeight ? (
+          <ButtonUpdateWeight
+            onPress={handleNavigationWeightCreate}
+            weight={state.currentWeight}
+          />
+        ) : (
+          <ButtonNewWeight onPress={handleNavigationWeightCreate} />
+        )}
+
         <View style={styles.infoRadius}>
           <InfoRadius number={8.9} description="imc" />
           <InfoRadius
