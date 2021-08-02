@@ -8,6 +8,7 @@ export const theme = {
     light: '#C4C4C4',
     grayDark: '#444444',
     backgroundInput: '#F8F8F8',
+    warning: '#ffff00',
   },
   fonts: {
     light: 'Roboto-Light',

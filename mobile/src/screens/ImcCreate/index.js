@@ -7,7 +7,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import InfoRadius from '../../components/InfoRadius';
+import ImcRadius from '../../components/ImcRadius';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
@@ -24,7 +24,6 @@ const ImcCreate = ({ navigation }) => {
   });
 
   const handleChangeText = (text, field) => {
-    console.log(text);
     setState((old) => ({ ...old, [field]: text }));
   };
 
@@ -80,13 +79,7 @@ const ImcCreate = ({ navigation }) => {
         contentContainerStyle={{ flexGrow: 1 }}
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
-          {state.imc && (
-            <InfoRadius
-              number={state.imc}
-              description="imc"
-              style={styles.infoRadius}
-            />
-          )}
+          {state.imc && <ImcRadius imc={state.imc} style={styles.infoRadius} />}
           <Input
             label="Seu peso..."
             target="(kg)"
