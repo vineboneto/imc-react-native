@@ -9,7 +9,6 @@ import ButtonNewWeight from '../../components/ButtonNewWeight';
 import ButtonUpdateWeight from '../../components/ButtonUpdateWeight';
 
 import { theme } from '../../styles/theme';
-import { fakeDataRegisters } from '../../utils/fakeImcRegister';
 import styles from './styles';
 import api from '../../api';
 
@@ -43,16 +42,20 @@ const Dashboard = ({ navigation }) => {
   }, [state.currentWeight, isFocused]);
 
   useEffect(() => {
-    setState((old) => ({
-      ...old,
-      registers: fakeDataRegisters().map((register) => ({
-        id: register.id,
-        date: register.date,
-        height: register.height,
-        imc: register.imc,
-        weight: register.weight,
-      })),
-    }));
+    api.get('/registro').then((response) => {
+      console.log(response.data);
+      const datas = response.data;
+      setState((old) => ({
+        ...old,
+        registers: datas.map((value) => ({
+          id: value.id,
+          height: value.altura,
+          date: value.data,
+          weight: value.peso,
+          imc: (value.peso / value.altura ** 2).toFixed(1),
+        })),
+      }));
+    });
   }, []);
 
   const handleNavigationImcCreate = () => {

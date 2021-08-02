@@ -12,14 +12,16 @@ import styles from './styles';
 const ImcRegister = ({ data }) => {
   const { imc, weight, height, date } = data;
   const formatDate = new Date(date);
+  const weightFormat = parseFloat(weight).toFixed(2).replace('.', ',');
+  const heightFormat = parseFloat(height).toFixed(2).replace('.', ',');
 
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <InfoRadiusMini number={8.9} description="imc" />
+        <InfoRadiusMini number={imc} description="imc" />
         <View style={styles.textContent}>
-          <InfoText target="Peso: " text={`${weight}(kg)`} />
-          <InfoText target="Altura: " text={`${height}2(m)`} />
+          <InfoText target="Peso: " text={`${weightFormat}(kg)`} />
+          <InfoText target="Altura: " text={`${heightFormat}(m)`} />
           <InfoText
             target="Data: "
             text={dateformat(formatDate, 'dd/mm/yyyy')}
