@@ -1,10 +1,41 @@
-# Introdução
+# Imc React Native
 
-Este projeto trata-se da prova prática de Mobile - React Native para ingresso no IST-SD (Instituto SENAI de Tecnologia em Soluções Digitais).
+App para calcular Imc
 
+## Layout
 
-# Passo-a-Passo
+Acesse no Figma [aqui](https://www.figma.com/file/1NrE0O3KOxQbgpK5NFRa5U/ps-react-native-Copy?node-id=1%3A3)
 
-1) Primeiramente clone o projeto para seu computador.
-2) Verifique as informações presentes no pdf "proposta" na raíz do projeto.
-3) Fique atento para a forma de entrega do projeto feito.
+## Requisitos
+
+ - NodeJS `14.15.5`
+ - Yarn `1.22.10`
+ - Android simulator `31.0.2` / modo desenvolvimento ativado no celular
+
+***
+
+## Dev
+
+### Api
+
+```shell
+$ cd api
+
+# Instalar dependências
+$ yarn
+
+# Executar
+$ yarn start
+```
+
+### Mobile
+
+```shell
+$ cd mobile
+
+# Instalar dependências
+$ yarn
+
+# Executar
+$ yarn start
+```
