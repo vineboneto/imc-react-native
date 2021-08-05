@@ -37,5 +37,5 @@ $ cd mobile
 $ yarn
 
 # Executar
-$ yarn start
+$ yarn android
 ```
